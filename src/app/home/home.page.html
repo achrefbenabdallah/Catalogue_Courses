@@ -1,0 +1,22 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>
+      Our Catalogue
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="ion-margin">
+    <strong>We propose these new courses :</strong>
+  </div>
+  
+  <ion-list>
+    <ion-item *ngFor="let c of listCourses" [routerLink]="['details',c.id]">
+      <ion-avatar class="ion-margin-horizontal">
+        <ion-img [src]="c.image"></ion-img>
+      </ion-avatar>
+      {{c.title}}
+    </ion-item>
+  </ion-list>
+</ion-content>
