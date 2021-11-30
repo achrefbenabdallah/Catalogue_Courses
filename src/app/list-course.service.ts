@@ -42,4 +42,9 @@ export class ListCourseService {
     let i = this.tabCourses.indexOf(c);
     this.tabCourses.splice(i,1);
   }
+
+  addCourse(newCourse){
+    newCourse.id= this.tabCourses[this.tabCourses.length-1].id+1;
+    this.tabCourses.push(newCourse);
+  }
 }

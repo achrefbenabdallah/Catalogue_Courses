@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ListCourseService } from '../list-course.service';
 
 @Component({
   selector: 'app-add-course',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddCoursePage implements OnInit {
 
-  constructor() { }
+  constructor(private listCourse :ListCourseService,
+    private router:Router) { }
 
   ngOnInit() {
+  }
+
+  onSubmit(f){
+    //console.log(f);
+    f.value.keywords=f.value.keywords.split(',');
+    this.listCourse.addCourse(f.value);
+    this.router.navigateByUrl('/home');
   }
 
 }
